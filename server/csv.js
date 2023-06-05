@@ -7,7 +7,6 @@ class CSV {
   constructor(text) {
     // Break the text into lines, removing trailing new lines.
     const lines = text.trim().split('\n')
-    console.log('File contains', lines.length, 'lines.')
 
     // Process header as a special line
     const header = lines.shift()
