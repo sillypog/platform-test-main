@@ -8,9 +8,11 @@
   "dependencies": {
     "@babel/cli": "^7.14.5",
     "@babel/preset-env": "^7.14.7",
+    "cloudinary": "^1.37.0",
     "cors": "^2.8.5",
     "express": "~4.16.1",
-    "formidable": "^2.1.1"
+    "formidable": "^2.1.1",
+    "lodash": "^4.17.21"
   },
   "engines": {
     "node": ">=12.x"
