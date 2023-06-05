@@ -56,9 +56,20 @@ main {
   padding: 10px;
   margin: 10px;
   width: 80vw;
-  
 }
 
 .error {
   background-color: #ff7474;
+}
+
+.UploadButton {
+  min-width: 300px;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.UploadButton > * {
+  margin-bottom: 10px;
 }

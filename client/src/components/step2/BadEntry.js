@@ -1,4 +1,4 @@
-export default function BadEntry({entry}) {
+export default function BadEntry({ entry }) {
   return (
     <li className="Product bordered error">
       <h1>Bad entry at line {entry.line_number}</h1>
