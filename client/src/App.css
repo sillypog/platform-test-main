@@ -47,3 +47,18 @@ main {
 .activeStep {
   color: #ff0000;
 }
+
+.bulletless {
+  list-style-type: none;
+}
+
+.Product {
+  padding: 10px;
+  margin: 10px;
+  width: 80vw;
+  
+}
+
+.error {
+  background-color: #ff7474;
+}

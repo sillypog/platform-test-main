@@ -1,11 +1,11 @@
-import BackButton from './BackButton';
-import StepIndicator from './StepIndicator';
+import BackButton from './BackButton'
+import StepIndicator from './StepIndicator'
 
-export default function NavBar({steps, currentStep, onBack}) {
+export default function NavBar({ steps, currentStep, onBack }) {
   const stepIndicators = steps.map((stepName, stepNumber) => {
     const isActive = currentStep === stepNumber
     return <StepIndicator key={stepNumber} stepName={stepName} active={isActive} />
-  });
+  })
 
   return (
     <nav>
