@@ -30,11 +30,13 @@ The frontend application is a single page with a multi steps module:
 ![step2](./assets/step2.png)
 
 ## Exercise
+
 ### Frontend
 
 Create a page which allows the users to upload a csv file containing product information ([see csv specification](#csv-specification)) and validate to show the response. This page will call a /upload endpoint that you will develop on purpose.
 
 The response is shown in a new page and it shows for each imported product: it's status (imported correctly or not). If imported correctly display the product name, the picture's dimensions and a picture, otherwise, display the error details.
+
 ### Backend
 
 Create an endpoint: `POST /upload` which accepts a POST request with `multipart/form-data` header containing a `.csv` file.
@@ -72,6 +74,7 @@ The order of the elements in this array does not need to be the same as in the C
 You should handle errors and return a response with both imported data and errors encountred.
 
 Response example:
+
 ```
 {
   data: [],
