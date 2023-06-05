@@ -1,6 +1,7 @@
 import cors from 'cors'
 import express from 'express'
 import formidable from 'formidable'
+import fs from 'fs'
 
 const app = express()
 
@@ -13,8 +14,9 @@ app.get('/', (req, res) => {
 app.post('/upload', async(req, res) => {
   try {
     const file = await findUpload(req)
+    const csvData = await loadFile(file)
 
-    console.log(file)
+    console.log(csvData)
 
     res.writeHead(200, {'Content-Type': 'text/plain'})
     res.end("Done")
@@ -40,6 +42,18 @@ function findUpload(req) {
         reject({code: 422, body: "Data must be a CSV file"})
       } else {
         resolve(files.csvFile)
+      }
+    })
+  })
+}
+
+function loadFile(file) {
+  return new Promise((resolve, reject) => {
+    fs.readFile(file.filepath, 'utf8', (err, csvData) => {
+      if (err) {
+        reject({code: 400, body: String(err)})
+      } else {
+        resolve(csvData)
       }
     })
   })
