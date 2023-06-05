@@ -3,6 +3,8 @@ import express from 'express'
 import formidable from 'formidable'
 import fs from 'fs'
 
+import {CSV} from './csv'
+
 const app = express()
 
 app.use(cors())
@@ -15,8 +17,7 @@ app.post('/upload', async(req, res) => {
   try {
     const file = await findUpload(req)
     const csvData = await loadFile(file)
-
-    console.log(csvData)
+    const products = parseFile(csvData)
 
     res.writeHead(200, {'Content-Type': 'text/plain'})
     res.end("Done")
@@ -57,6 +58,15 @@ function loadFile(file) {
       }
     })
   })
+}
+
+function parseFile(csvData) {
+  try {
+    const productData = new CSV(csvData)
+    return productData
+  } catch(err) {
+    throw {code: 422, body: String(err)}
+  }
 }
 
 const port = process.env.PORT || 5000
