@@ -10,8 +10,8 @@
   "license": "UNLICENSED",
   "scripts": {
     "start": "echo 'please do \"yarn start\" in each workspace directory'",
-    "start:client": "yarn workspace client start",
-    "start:server": "yarn workspace server start",
+    "start:client": "NODE_OPTIONS=--openssl-legacy-provider yarn workspace client start",
+    "start:server": "PORT=5001 yarn workspace server start",
     "prettier:fix": "prettier --write '**/*.{js,md,jsx,json,css,scss,yml,yaml,html}'"
   },
   "dependencies": {
