@@ -1,7 +1,7 @@
-export default function ErrorMessage({message}) {
+export default function ErrorMessage({ message }) {
   if (message) {
-      return <p className="error">{message}</p>
+    return <p className="error">{message}</p>
   } else {
-      return null
+    return null
   }
 }

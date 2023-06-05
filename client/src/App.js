@@ -8,13 +8,11 @@ import Uploader from './components/step1/Uploader'
 
 function App() {
   const steps = ['Import', 'Results']
-  const [currentStep, setCurrentStep] = useState(1)
-  const [products, setProducts] = useState(
-    {data:[], errors:[]}
-  )
+  const [currentStep, setCurrentStep] = useState(0)
+  const [products, setProducts] = useState({ data: [], errors: [] })
 
   function handleData(json) {
-    setProducts(json);
+    setProducts(json)
     changeStep(1)
   }
 
@@ -26,6 +24,17 @@ function App() {
     setCurrentStep(currentStep + increment)
   }
 
+  function getStepContent() {
+    switch (currentStep) {
+      case 0:
+        return <Uploader onComplete={handleData} />
+      case 1:
+        return <ProductList products={products} />
+      default:
+        return <p>Error: Unknown step</p>
+    }
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -33,8 +42,7 @@ function App() {
       </header>
       <main>
         <NavBar steps={steps} currentStep={currentStep} onBack={changeStep} />
-        <Uploader onComplete={handleData}/>
-        <ProductList products={products} />
+        {getStepContent()}
       </main>
     </div>
   )
