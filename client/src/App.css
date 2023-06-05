@@ -4,11 +4,46 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bordered {
+  background-color: #cccccc;
+  border-radius: 20px;
+}
+
+.BackButton {
+  position: absolute;
+  top: 80px;
+  left: 30px;
+}
+
+.StepIndicators {
+  padding: 10px 30px;
+  display: flex;
+}
+
+.StepIndicators li {
+  flex: 1;
+  margin-right: 50px;
+}
+
+.StepIndicators li:first-child {
+  margin-left: 50px;
+}
+
+.activeStep {
+  color: #ff0000;
 }
